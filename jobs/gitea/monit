@@ -1,0 +1,5 @@
+check process gitea
+  with pidfile /var/vcap/sys/run/gitea/gitea.pid
+  start program "/var/vcap/jobs/gitea/bin/ctl start"
+  stop program "/var/vcap/jobs/gitea/bin/ctl stop"
+  group vcap

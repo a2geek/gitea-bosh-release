@@ -1,0 +1,47 @@
+---
+name: gitea
+
+releases:
+- name: gitea
+  version: latest
+
+instance_groups:
+- name: gitea
+  instances: 1
+  azs: [z1, z2, z3]
+  networks: [{name: default}]
+  vm_type: default
+  stemcell: default
+  jobs:
+  - name: gitea
+    release: gitea
+    properties:
+      https:
+        certificate: ((gitea_web.certificate))
+        private_key: ((gitea_web.private_key))
+
+variables:
+- name: gitea_ca
+  type: certificate
+  options:
+    is_ca: true
+    common_name: gitea_ca
+    duration: 1095
+- name: gitea_web
+  type: certificate
+  options:
+    ca: gitea_ca
+    common_name: gitea.gdc.lan
+    alternative_names: [gitea.gdc.lan]
+
+stemcells:
+- alias: default
+  os: ubuntu-jammy
+  version: latest
+
+update:
+  canaries: 1
+  canary_watch_time: 10000-600000
+  max_in_flight: 1
+  update_watch_time: 10000-600000
+  serial: false
