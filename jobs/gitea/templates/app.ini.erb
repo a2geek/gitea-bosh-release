@@ -6,7 +6,7 @@ PROTOCOL=https
 HTTP_PORT=443
 CERT_FILE=/var/vcap/jobs/gitea/config/certs/public.pem
 KEY_FILE=/var/vcap/jobs/gitea/config/certs/private.pem
-DOMAIN=gitea.gdc.lan
+DOMAIN=<%= p("server.domain") %>
 REDIRECT_OTHER_PORT=true
 PORT_TO_REDIRECT=80
 SSH_PORT=2222

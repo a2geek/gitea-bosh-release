@@ -13,3 +13,4 @@ releases/**/*.tgz
 *#
 #*
 gitea-bosh-release.tgz
+vars.yml
