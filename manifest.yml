@@ -21,6 +21,9 @@ instance_groups:
   - name: gitea
     release: gitea
     properties:
+      admin:
+        username: ((gitea_admin_username))
+        email: ((gitea_admin_email))
       https:
         certificate: ((gitea_web.certificate))
         private_key: ((gitea_web.private_key))
