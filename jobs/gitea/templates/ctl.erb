@@ -23,6 +23,7 @@ case $1 in
 #    export DISABLE_REGISTRATION="true"
 #    export DEFAULT_BRANCH="main"
 
+    export PATH=/var/vcap/packages/git/bin:$PATH
     export GITEA_WORK_DIR=${DATA_DIR}
     export HOME=${DATA_DIR}
 

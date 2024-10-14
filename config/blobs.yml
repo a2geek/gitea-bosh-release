@@ -1,3 +1,6 @@
+git/git-2.47.0.tar.gz:
+  size: 11363590
+  sha: sha256:0af590d52972741b8787c35ce6e204127b04feb50ee078434cb159dcc13fd7cf
 gitea/gitea-1.22.3-linux-amd64.xz:
   size: 66170988
   sha: sha256:be33c437bfb324d99eaf70e7f06e11ff011d7fd3412b0ff9dac7671adc12fd0e

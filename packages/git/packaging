@@ -1,0 +1,8 @@
+set -ex
+
+tar xzf git/git-*.tar.gz 
+cd git-*
+make configure
+./configure --prefix=${BOSH_INSTALL_TARGET}
+make -j$(nproc) all
+make install
