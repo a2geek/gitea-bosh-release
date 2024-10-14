@@ -9,6 +9,8 @@ KEY_FILE=/var/vcap/jobs/gitea/config/certs/private.pem
 DOMAIN=<%= p("server.domain") %>
 REDIRECT_OTHER_PORT=true
 PORT_TO_REDIRECT=80
+START_SSH_SERVER=true
+BUILTIN_SSH_SERVER_USER=git
 SSH_PORT=2222
 
 [database]
