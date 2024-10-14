@@ -20,3 +20,8 @@ ALLOW_LOCALNETWORKS=true
 
 [security]
 INSTALL_LOCK=true
+SECRET_KEY=<%= p("security.secret_key") %>
+INTERNAL_TOKEN=<%= p("security.internal_token") %>
+
+[oauth2]
+JWT_SECRET=<%= Base64.urlsafe_encode64(p("oauth2.jwt_secret"), padding: false) %>

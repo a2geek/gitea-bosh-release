@@ -1,0 +1,8 @@
+processes:
+- name: gitea
+  executable: /var/vcap/jobs/gitea/bin/start
+
+  persistent_disk: true
+
+  capabilities:
+  - NET_BIND_SERVICE

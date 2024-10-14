@@ -4,6 +4,10 @@ name: gitea
 releases:
 - name: gitea
   version: latest
+- name: "bpm"
+  version: "1.4.1"
+  url: "https://bosh.io/d/github.com/cloudfoundry/bpm-release?v=1.4.1"
+  sha1: "1d2f22a5d024cb34f6d7d2da3f1ee95e4a8cdd61"
 
 instance_groups:
 - name: gitea
@@ -12,6 +16,7 @@ instance_groups:
   networks: [{name: default}]
   vm_type: default
   stemcell: default
+  persistent_disk: 10240
   jobs:
   - name: gitea
     release: gitea
@@ -19,6 +24,13 @@ instance_groups:
       https:
         certificate: ((gitea_web.certificate))
         private_key: ((gitea_web.private_key))
+      security:
+        secret_key: ((gitea_secret_key))
+        internal_token: ((gitea_internal_token))
+      oauth2:
+        jwt_secret: ((gitea_jwt_secret))
+  - name: bpm
+    release: bpm
 
 variables:
 - name: gitea_ca
@@ -33,6 +45,14 @@ variables:
     ca: gitea_ca
     common_name: gitea.gdc.lan
     alternative_names: [gitea.gdc.lan]
+- name: gitea_secret_key
+  type: password
+- name: gitea_internal_token
+  type: password
+- name: gitea_jwt_secret
+  type: password
+  options:
+    length: 32  # required by Gitea
 
 stemcells:
 - alias: default
