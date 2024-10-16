@@ -3,6 +3,7 @@ name: gitea
 
 templates:
   bpm.yml.erb: config/bpm.yml
+  env.sh.erb: config/env.sh
   create-admin-user.erb: bin/create-admin-user
   start.erb: bin/start
   app.ini.erb: config/app.ini
@@ -36,3 +37,10 @@ properties:
 
   oauth2.jwt_secret:
     description: "OAuth2 authentication secret for access and refresh tokens, change this to a unique string."
+
+  # Temporary hack?
+  registration.username:
+    description: "Username for registering the action runner."
+    default: "act_runner"
+  registration.password:
+    description: "Password for registering the action runner."

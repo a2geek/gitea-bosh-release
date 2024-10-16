@@ -1,0 +1,6 @@
+set -ex
+
+mkdir -p $BOSH_INSTALL_TARGET/bin
+
+xzcat gitea/act_runner-*-linux-amd64.xz > ${BOSH_INSTALL_TARGET}/bin/act_runner
+chmod +x ${BOSH_INSTALL_TARGET}/bin/act_runner

@@ -4,4 +4,4 @@ name: gitea
 dependencies: []
 
 files:
-- gitea/gitea-1.22.3-linux-amd64.xz
+- gitea/gitea-*-linux-amd64.xz

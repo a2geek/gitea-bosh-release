@@ -1,30 +1,32 @@
 #!/bin/bash
 
-function admin_users {
-    chpst -u vcap:vcap /var/vcap/packages/gitea/bin/gitea \
-        admin user list \
-        --config /var/vcap/jobs/gitea/config/app.ini \
-        --admin | grep "true" | wc -l
+function check_user {
+    username="$1"
+    password="$2"
+    email="$3"
+    extra_arg="$4"
+
+    count=$(${GITEA} admin user list \
+        --admin | grep "${username}" | wc -l)
+
+    if [ "${count}" -eq "0" ]
+    then
+        printf 'Adding user "%s".\n' "${username}"
+        ${GITEA} admin user create \
+            --username "${username}" \
+            --email "${email}" \
+            --password "${password}" \
+            --admin ${extra_arg}
+    else
+        printf 'Admin user "%s" exists.\n' "${username}"
+    fi
 }
 
 
-export PATH=/var/vcap/packages/git/bin:$PATH
-export HOME=/var/vcap/store/gitea
+source /var/vcap/jobs/gitea/config/env.sh
 
 # Will create the database so we can add the admin user before Gitea runs
-chpst -u vcap:vcap /var/vcap/packages/gitea/bin/gitea \
-    migrate \
-    --config /var/vcap/jobs/gitea/config/app.ini
+${GITEA} migrate
 
-if [ "$(admin_users)" -eq "0" ]
-then
-    chpst -u vcap:vcap /var/vcap/packages/gitea/bin/gitea \
-        admin user create \
-        --config /var/vcap/jobs/gitea/config/app.ini \
-        -username <%= p("admin.username") %> \
-        --email <%= p("admin.email") %> \
-        --password "changeme" \
-        --admin --must-change-password
-else
-    echo "Admin user exists."
-fi
+check_user '<%= p("admin.username") %>' 'changeme' '<%= p("admin.email") %>' --must-change-password
+check_user '<%= p("registration.username") %>' '<%= p("registration.password") %>' 'fake@fake.fake'

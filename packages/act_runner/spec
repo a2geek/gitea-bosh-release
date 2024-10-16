@@ -1,0 +1,7 @@
+---
+name: act_runner
+
+dependencies: []
+
+files:
+- gitea/act_runner-*-linux-amd64.xz

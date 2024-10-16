@@ -1,0 +1,5 @@
+check process act_runner
+  with pidfile /var/vcap/sys/run/bpm/act_runner/act_runner.pid
+  start program "/var/vcap/jobs/bpm/bin/bpm start act_runner"
+  stop program "/var/vcap/jobs/bpm/bin/bpm stop act_runner"
+  group vcap

@@ -2,5 +2,5 @@ set -ex
 
 mkdir -p $BOSH_INSTALL_TARGET/bin
 
-xzcat gitea/gitea-1.22.3-linux-amd64.xz > ${BOSH_INSTALL_TARGET}/bin/gitea
+xzcat gitea/gitea-*-linux-amd64.xz > ${BOSH_INSTALL_TARGET}/bin/gitea
 chmod +x ${BOSH_INSTALL_TARGET}/bin/gitea

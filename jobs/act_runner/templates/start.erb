@@ -1,0 +1,22 @@
+#!/bin/bash
+
+export HOME="/var/vcap/store/act_runner"
+export GITEA_INSTANCE_URL='https://<%= p("server.domain") %>'
+
+cd ${HOME}
+
+token=$(curl -k --no-progress-meter \
+     -X 'GET' 'https://gitea.gdc.lan/api/v1/admin/runners/registration-token' \
+     -H 'accept: text/plain' \
+     --user '<%= p("registration.username") %>:<%= p("registration.password") %>' | 
+  python3 -c "import sys, json; print(json.load(sys.stdin)['token'])")
+
+/var/vcap/packages/act_runner/bin/act_runner register \
+    --instance 'https://<%= p("server.domain") %>' \
+    --config /var/vcap/jobs/act_runner/config/config.yaml \
+    --name '<%= spec.name %>/<%= spec.index %>' \
+    --token "${token}" \
+    --no-interactive
+
+/var/vcap/packages/act_runner/bin/act_runner daemon \
+  --config /var/vcap/jobs/act_runner/config/config.yaml

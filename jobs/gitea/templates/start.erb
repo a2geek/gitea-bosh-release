@@ -1,7 +1,4 @@
 #!/bin/bash
 
-export PATH=/var/vcap/packages/git/bin:$PATH
-export HOME=/var/vcap/store/gitea
-
-/var/vcap/packages/gitea/bin/gitea web \
-  --config /var/vcap/jobs/gitea/config/app.ini
+source /var/vcap/jobs/gitea/config/env.sh
+${GITEA} web

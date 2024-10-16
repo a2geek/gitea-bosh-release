@@ -20,7 +20,6 @@ instance_groups:
   jobs:
   - name: bpm
     release: bpm
-
   - name: gitea
     release: gitea
     properties:
@@ -37,6 +36,28 @@ instance_groups:
         internal_token: ((gitea_internal_token))
       oauth2:
         jwt_secret: ((gitea_jwt_secret))
+      registration:
+        password: ((gitea_registration_password))
+
+- name: action-runner
+  instances: 2
+  azs: [z1, z2, z3]
+  networks: [{name: default}]
+  vm_type: default
+  stemcell: default
+  persistent_disk: 10240
+  jobs:
+  - name: bpm
+    release: bpm
+  - name: act_runner
+    release: gitea
+    properties:
+      runner:
+        capacity: 4
+      server:
+        domain: ((gitea_server_domain))
+      registration:
+        password: ((gitea_registration_password))
 
 variables:
 - name: gitea_ca
@@ -51,6 +72,8 @@ variables:
     ca: gitea_ca
     common_name: ((gitea_server_domain))
     alternative_names: [((gitea_server_domain))]
+- name: gitea_registration_password
+  type: password
 - name: gitea_secret_key
   type: password
 - name: gitea_internal_token
