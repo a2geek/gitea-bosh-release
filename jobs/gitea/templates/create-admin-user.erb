@@ -4,7 +4,7 @@ function check_user {
     username="$1"
     password="$2"
     email="$3"
-    extra_arg="$4"
+    change_password="$4"
 
     count=$(${GITEA} admin user list \
         --admin | grep "${username}" | wc -l)
@@ -16,7 +16,8 @@ function check_user {
             --username "${username}" \
             --email "${email}" \
             --password "${password}" \
-            --admin ${extra_arg}
+            --admin \
+            --must-change-password=${change_password}
     else
         printf 'Admin user "%s" exists.\n' "${username}"
     fi
@@ -28,5 +29,5 @@ source /var/vcap/jobs/gitea/config/env.sh
 # Will create the database so we can add the admin user before Gitea runs
 ${GITEA} migrate
 
-check_user '<%= p("admin.username") %>' 'changeme' '<%= p("admin.email") %>' --must-change-password
-check_user '<%= p("registration.username") %>' '<%= p("registration.password") %>' 'fake@fake.fake'
+check_user '<%= p("admin.username") %>' 'changeme' '<%= p("admin.email") %>' true
+check_user '<%= p("registration.username") %>' '<%= p("registration.password") %>' 'fake@fake.fake' false
