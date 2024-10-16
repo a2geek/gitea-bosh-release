@@ -4,6 +4,17 @@ processes:
 
   persistent_disk: true
 
+  #
+  # Note: we need to execute Git hooks. "persistent_disk" does not allow this.
+  #   ... but we cannot mount "/var/vcap/store/gitea" since that is the persistent disk name.
+  #
+  #       ¯\_(ツ)_/¯
+  #
+  additional_volumes:
+  - path: /var/vcap/store/repositories
+    writable: true
+    allow_executions: true
+
   capabilities:
   - NET_BIND_SERVICE
 
