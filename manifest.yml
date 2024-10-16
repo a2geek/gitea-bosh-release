@@ -54,8 +54,6 @@ instance_groups:
     properties:
       runner:
         capacity: 4
-      server:
-        domain: ((gitea_server_domain))
       registration:
         password: ((gitea_registration_password))
 
@@ -71,7 +69,7 @@ variables:
   options:
     ca: gitea_ca
     common_name: ((gitea_server_domain))
-    alternative_names: [((gitea_server_domain))]
+    alternative_names: [((gitea_server_domain)), gitea.internal]
 - name: gitea_registration_password
   type: password
 - name: gitea_secret_key

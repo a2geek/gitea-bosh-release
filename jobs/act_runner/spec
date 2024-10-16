@@ -5,6 +5,7 @@ templates:
   bpm.yml.erb: config/bpm.yml
   config.yaml.erb: config/config.yaml
   start.erb: bin/start
+  aliases.json.erb: dns/aliases.json
 
 packages:
 - act_runner
@@ -14,9 +15,6 @@ properties:
   runner.capacity:
     description: "Execute how many tasks concurrently at the same time."
     default: "1"
-  
-  server.domain:
-    description: "Domain name of this server."
 
   # Temporary hack?
   registration.username:
