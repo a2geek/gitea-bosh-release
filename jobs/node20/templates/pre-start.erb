@@ -1,0 +1,5 @@
+#!/bin/bash
+
+cp /var/vcap/jobs/node20/bin/setup /etc/profile.d/node20.sh
+chown :vcap /etc/profile.d/node20.sh
+echo "Finished node20 pre-start"

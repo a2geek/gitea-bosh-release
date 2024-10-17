@@ -1,0 +1,7 @@
+---
+name: node20
+
+dependencies: []
+
+files:
+- node/node-v20.18.0-linux-x64.tar.xz

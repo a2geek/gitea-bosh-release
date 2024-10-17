@@ -7,3 +7,6 @@ gitea/act_runner-0.2.11-linux-amd64.xz:
 gitea/gitea-1.22.3-linux-amd64.xz:
   size: 66170988
   sha: sha256:be33c437bfb324d99eaf70e7f06e11ff011d7fd3412b0ff9dac7671adc12fd0e
+node/node-v20.18.0-linux-x64.tar.xz:
+  size: 25738964
+  sha: sha256:4543670b589593f8fa5f106111fd5139081da42bb165a9239f05195e405f240a

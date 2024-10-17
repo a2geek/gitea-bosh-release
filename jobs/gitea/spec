@@ -12,7 +12,6 @@ templates:
 
 packages:
 - gitea
-- git
 
 # Many of these properties are named after the Gitea configuration itself.
 # See: https://docs.gitea.com/administration/config-cheat-sheet

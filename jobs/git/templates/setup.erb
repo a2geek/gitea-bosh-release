@@ -1,0 +1,5 @@
+#!/bin/bash
+
+if ! echo $PATH | grep -q 'git'; then
+  export PATH=/var/vcap/packages/git/bin:$PATH
+fi

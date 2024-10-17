@@ -8,6 +8,10 @@ releases:
   version: "1.4.1"
   url: "https://bosh.io/d/github.com/cloudfoundry/bpm-release?v=1.4.1"
   sha1: "1d2f22a5d024cb34f6d7d2da3f1ee95e4a8cdd61"
+- name: "os-conf"
+  version: "22.3.0"
+  url: "https://bosh.io/d/github.com/cloudfoundry/os-conf-release?v=22.3.0"
+  sha1: "0f88a29315d8d9f900bb30a81c0eaf6d34a61639"
 
 instance_groups:
 - name: gitea
@@ -20,6 +24,8 @@ instance_groups:
   jobs:
   - name: bpm
     release: bpm
+  - name: git
+    release: gitea
   - name: gitea
     release: gitea
     properties:
@@ -49,6 +55,14 @@ instance_groups:
   jobs:
   - name: bpm
     release: bpm
+  - name: git
+    release: gitea
+  - name: node20
+    release: gitea
+  - name: ca_certs
+    release: os-conf
+    properties:
+      certs: ((gitea_web.certificate))
   - name: act_runner
     release: gitea
     properties:

@@ -1,0 +1,5 @@
+#!/bin/bash
+
+cp /var/vcap/jobs/git/bin/setup /etc/profile.d/git.sh
+chown :vcap /etc/profile.d/git.sh
+echo "Finished git pre-start"

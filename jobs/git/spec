@@ -1,0 +1,11 @@
+---
+name: git
+
+templates:
+  pre-start.erb: bin/pre-start
+  setup.erb: bin/setup
+
+packages:
+- git
+
+properties: {}

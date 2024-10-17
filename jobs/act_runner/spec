@@ -9,7 +9,6 @@ templates:
 
 packages:
 - act_runner
-- git
 
 properties:
   runner.capacity:
