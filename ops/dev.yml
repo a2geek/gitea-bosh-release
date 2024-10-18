@@ -1,0 +1,6 @@
+---
+- type: replace
+  path: /releases/name=gitea
+  value:
+    name: gitea
+    version: latest

@@ -23,7 +23,7 @@ The primary admin will have the default pasword of `changeme` and Gitea will req
 
 ## Ops Files
 
-As ops files are added, they will be in the `ops` directory.
+See the ops files [README](ops/README.md).
 
 ## Deployment
 

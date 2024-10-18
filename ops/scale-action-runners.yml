@@ -1,0 +1,8 @@
+---
+- type: replace
+  path: /instance_groups/name=action-runner/instances
+  value: ((action_runner_instances))
+
+- type: replace
+  path: /instance_groups/name=action-runner/jobs/name=act_runner/properties/runner/capacity
+  value: ((action_runner_capacity))
