@@ -3,7 +3,9 @@ name: gitea
 
 releases:
 - name: gitea
-  version: latest
+  version: v1
+  url: https://github.com/a2geek/gitea-bosh-release/releases/download/v1/gitea-bosh-release.tgz
+  sha1: 8544759fc3e524561734319b0567bd11421fad29
 - name: "bpm"
   version: "1.4.1"
   url: "https://bosh.io/d/github.com/cloudfoundry/bpm-release?v=1.4.1"
