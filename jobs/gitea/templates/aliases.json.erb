@@ -1,0 +1,7 @@
+{ 
+<% if p("database.type") == "postgres" %>
+  "database.gitea.internal": [
+    "*.postgres.default.gitea.bosh"
+  ]
+<% end %>
+}

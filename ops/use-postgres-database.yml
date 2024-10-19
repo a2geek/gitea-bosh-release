@@ -1,0 +1,81 @@
+---
+- type: replace
+  path: /releases/-
+  value:
+    name: "postgres"
+    version: "52"
+    url: "https://bosh.io/d/github.com/cloudfoundry/postgres-release?v=52"
+    sha1: "c00282991b51ca0b3a7399c1c96fb18eff907659"
+
+- type: replace
+  path: /instance_groups/-
+  value:
+    name: postgres
+    instances: 1
+    azs: [z1, z2, z3]
+    networks: [{name: default}]
+    vm_type: default
+    stemcell: default
+    persistent_disk: 10240
+    jobs:
+    - name: bpm
+      release: bpm
+    - name: postgres
+      release: postgres
+      properties:
+        databases:
+          databases:
+          - name: giteadb
+            citext: false
+          roles:
+          - name: gitea
+            password: ((gitea_postgres_password))
+          tls:
+            ca: ((postgres_cert.ca))
+            certificate: ((postgres_cert.certificate))
+            private_key: ((postgres_cert.private_key))
+
+- type: replace
+  path: /variables/-
+  value:
+    name: gitea_postgres_password
+    type: password
+
+- type: replace
+  path: /variables/-
+  value:
+    name: postgres_ca
+    type: certificate
+    options:
+      is_ca: true
+      common_name: postgres_ca
+
+- type: replace
+  path: /variables/-
+  value:
+    name: postgres_cert
+    type: certificate
+    options:
+      ca: postgres_ca
+      common_name: database.gitea.internal
+      alternative_names: [database.gitea.internal]
+      extended_key_usage:
+      - server_auth
+
+- type: replace
+  path: /instance_groups/name=gitea/jobs/name=gitea/properties/database?
+  value:
+    type: postgres
+    host: database.gitea.internal:5432
+    name: giteadb
+    user: gitea
+    password: ((gitea_postgres_password))
+    tls: verify-full
+
+- type: replace
+  path: /instance_groups/name=gitea/jobs/-
+  value:
+    name: ca_certs
+    release: os-conf
+    properties:
+      certs: ((postgres_cert.certificate))

@@ -17,18 +17,19 @@ BUILTIN_SSH_SERVER_USER=git
 SSH_PORT=2222
 
 [database]
-<% if p("database.type") == "sqlite3" %>
+<% if p("database.type") == "sqlite3" -%>
 DB_TYPE=sqlite3
-<% elsif p("database.type") == "postgres" %>
+<% elsif p("database.type") == "postgres" -%>
 DB_TYPE=postgres
 HOST=<%= p("database.host") %>
 NAME=<%= p("database.name") %>
 USER=<%= p("database.user") %>
 PASSWD=`<%= p("database.password") %>`
 SCHEMA=<%= p("database.schema") %>
-<% else %>
+SSL_MODE=<%= p("database.tls") %>
+<% else -%>
 <% raise "unknown database type: " + p("database.type") %>
-<% end %>
+<% end -%>
 
 [service]
 DISABLE_REGISTRATION=true

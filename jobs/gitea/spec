@@ -9,6 +9,7 @@ templates:
   app.ini.erb: config/app.ini
   public.pem.erb: config/certs/public.pem
   private.pem.erb: config/certs/private.pem
+  aliases.json.erb: dns/aliases.json
 
 packages:
 - gitea
@@ -55,6 +56,9 @@ properties:
   database.schema: 
     description: 'For PostgreSQL only, schema to use if different from "public". The schema must exist beforehand, the user must have creation privileges on it, and the user search path must be set to the look into the schema first (e.g. ALTER USER user SET SEARCH_PATH = schema_name,"$user",public;).'
     default: "public"
+  database.tls:
+    description: "SSL/TLS encryption mode for connecting to the database. This option is only applied for PostgreSQL and MySQL."
+    default: "disable"
 
   # Temporary hack?
   registration.username:
