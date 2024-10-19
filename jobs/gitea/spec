@@ -37,6 +37,25 @@ properties:
   oauth2.jwt_secret:
     description: "OAuth2 authentication secret for access and refresh tokens, change this to a unique string."
 
+  database.type:
+    description: "The database type in use [postgres, sqlite3]."
+    default: "sqlite3"
+  database.host:
+    description: "Database host address and port or absolute path for unix socket."
+    default: ""
+  database.name:
+    description: "Database name."
+    default: "gitea"
+  database.user:
+    description: "Database username."
+    default: ""
+  database.password:
+    description: "Database user password."
+    default: ""
+  database.schema: 
+    description: 'For PostgreSQL only, schema to use if different from "public". The schema must exist beforehand, the user must have creation privileges on it, and the user search path must be set to the look into the schema first (e.g. ALTER USER user SET SEARCH_PATH = schema_name,"$user",public;).'
+    default: "public"
+
   # Temporary hack?
   registration.username:
     description: "Username for registering the action runner."

@@ -1,0 +1,37 @@
+---
+- type: replace
+  path: /releases/-
+  value:
+    name: "postgres"
+    version: "52"
+    url: "https://bosh.io/d/github.com/cloudfoundry/postgres-release?v=52"
+    sha1: "c00282991b51ca0b3a7399c1c96fb18eff907659"
+
+- type: replace
+  path: /instance_groups/name=gitea/jobs/-
+  value:
+    name: postgres
+    release: postgres
+    properties:
+      databases:
+        databases:
+        - name: giteadb
+          citext: false
+        roles:
+        - name: gitea
+          password: ((gitea_postgres_password))
+
+- type: replace
+  path: /variables/-
+  value:
+    name: gitea_postgres_password
+    type: password
+
+- type: replace
+  path: /instance_groups/name=gitea/jobs/name=gitea/properties/database?
+  value:
+    type: postgres
+    host: 127.0.0.1:5432
+    name: giteadb
+    user: gitea
+    password: ((gitea_postgres_password))
