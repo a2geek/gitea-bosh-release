@@ -51,6 +51,43 @@ describe 'gitea job' do
       expect(ini).to include("SCHEMA=public")
     end
 
+    it 'can be configured for local mysql' do
+      config = {
+        "database" => {
+          "type" => "mysql",
+          "host" => "/var/run/mysqld/mysqld.sock",
+          "name" => "gitea",
+          "user" => "gitea",
+          "password" => "sekret"
+        }
+      }
+      ini = template.render(config.merge(ini_defaults))
+      expect(ini).to include("DB_TYPE=mysql")
+      expect(ini).to include("HOST=/var/run/mysqld/mysqld.sock")
+      expect(ini).to include("NAME=gitea")
+      expect(ini).to include("USER=gitea")
+      expect(ini).to include("PASSWD=`sekret`")
+    end
+
+
+    it 'can be configured for remote mysql' do
+      config = {
+        "database" => {
+          "type" => "mysql",
+          "host" => "database.gitea.internal:3306",
+          "name" => "gitea",
+          "user" => "gitea",
+          "password" => "sekret"
+        }
+      }
+      ini = template.render(config.merge(ini_defaults))
+      expect(ini).to include("DB_TYPE=mysql")
+      expect(ini).to include("HOST=database.gitea.internal:3306")
+      expect(ini).to include("NAME=gitea")
+      expect(ini).to include("USER=gitea")
+      expect(ini).to include("PASSWD=`sekret`")
+    end
+
     it 'raises an error if the database type is unknown' do
       config = {
         "database" => {

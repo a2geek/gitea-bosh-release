@@ -27,6 +27,12 @@ USER=<%= p("database.user") %>
 PASSWD=`<%= p("database.password") %>`
 SCHEMA=<%= p("database.schema") %>
 SSL_MODE=<%= p("database.tls") %>
+<% elsif p("database.type") == "mysql" %>
+DB_TYPE=mysql
+HOST=<%= p("database.host") %>
+NAME=<%= p("database.name") %>
+USER=<%= p("database.user") %>
+PASSWD=`<%= p("database.password") %>`
 <% else -%>
 <% raise "unknown database type: " + p("database.type") %>
 <% end -%>

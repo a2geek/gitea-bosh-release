@@ -1,0 +1,85 @@
+
+---
+- type: replace
+  path: /releases/-
+  value:
+    name: "pxc"
+    version: "1.0.31"
+    url: "https://bosh.io/d/github.com/cloudfoundry/pxc-release?v=1.0.31"
+    sha1: "e2e951dfe9e374d3715d3156bf1132a4e0ffb2a5"
+
+- type: replace
+  path: /variables/-
+  value:
+    name: mysql_gitea_password
+    type: password
+
+- type: replace
+  path: /variables/-
+  value:
+    name: mysql_admin_password
+    type: password
+
+- type: replace
+  path: /variables/-
+  value:
+    name: pxc_galera_ca
+    type: certificate
+    options:
+      is_ca: true
+      common_name: pxc_galera_ca
+
+- type: replace
+  path: /variables/-
+  value:
+    name: pxc_server_ca
+    type: certificate
+    options:
+      is_ca: true
+      common_name: pxc_server_ca
+
+- type: replace
+  path: /variables/-
+  value:
+    name: galera_server_certificate
+    type: certificate
+    options:
+      ca: pxc_galera_ca
+      extended_key_usage: [ "server_auth", "client_auth" ]
+      common_name: galera_server_certificate
+
+- type: replace
+  path: /variables/-
+  value:
+    name: mysql_server_certificate
+    type: certificate
+    options:
+      ca: pxc_server_ca
+      common_name: mysql_server_certificate
+      alternative_names: ["localhost"]
+
+- type: replace
+  path: /instance_groups/name=gitea/jobs/-
+  value:
+    name: pxc-mysql
+    release: pxc
+    properties:
+      admin_password: ((mysql_admin_password))
+      tls:
+        galera: ((galera_server_certificate))
+        server: ((mysql_server_certificate))
+      seeded_users:
+        gitea:
+          password: ((mysql_gitea_password))
+          host: any
+          role: schema-admin
+          schema: gitea
+
+- type: replace
+  path: /instance_groups/name=gitea/jobs/name=gitea/properties/database?
+  value:
+    type: mysql
+    host: 127.0.0.1:3306
+    name: gitea
+    user: gitea
+    password: ((mysql_gitea_password))
