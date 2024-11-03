@@ -1,12 +1,16 @@
 git/git-2.47.0.tar.gz:
   size: 11363590
+  object_id: 4bc92005-4eea-4ff3-4988-c7a9e9f99946
   sha: sha256:0af590d52972741b8787c35ce6e204127b04feb50ee078434cb159dcc13fd7cf
 gitea/act_runner-0.2.11-linux-amd64.xz:
   size: 5543564
+  object_id: c0aaeb77-ff91-490a-79ed-8c24c8a7d2d0
   sha: sha256:6099bccc2876cb760f5443e88c8b2e1a52f226f485152fc6f711b3bb3f49501c
 gitea/gitea-1.22.3-linux-amd64.xz:
   size: 66170988
+  object_id: 79b17d64-0d41-4ec0-6215-7372fd0d8cd1
   sha: sha256:be33c437bfb324d99eaf70e7f06e11ff011d7fd3412b0ff9dac7671adc12fd0e
 node/node-v20.18.0-linux-x64.tar.xz:
   size: 25738964
+  object_id: d0cc26d7-82c4-430b-5839-c378614a3611
   sha: sha256:4543670b589593f8fa5f106111fd5139081da42bb165a9239f05195e405f240a
