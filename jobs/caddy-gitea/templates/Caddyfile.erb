@@ -1,0 +1,11 @@
+{
+        order gitea before file_server
+        persist_config off
+}
+:443
+tls /var/vcap/jobs/caddy-gitea/config/certs/public.pem /var/vcap/jobs/caddy-gitea/config/certs/private.pem
+gitea {
+        server https://gitea.internal
+        token "{$GITEA_TOKEN}"
+        domain <%= p("pages_domain") %>
+}

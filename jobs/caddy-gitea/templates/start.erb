@@ -1,0 +1,11 @@
+#!/usr/bin/bash
+
+tokenFile="/var/vcap/store/caddy-gitea/.token"
+
+export GITEA_TOKEN="$(cat ${tokenFile})"
+export XDG_DATA_HOME="/var/vcap/store/caddy-gitea"
+export XDG_CONFIG_HOME="/var/vcap/store/caddy-gitea"
+
+cd ${XDG_DATA_HOME}
+/var/vcap/packages/caddy-gitea/bin/caddy-gitea run \
+    -c /var/vcap/jobs/caddy-gitea/config/Caddyfile

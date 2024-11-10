@@ -2,4 +2,8 @@
 ---
 - type: replace
   path: /instance_groups/name=gitea/tags?/fqdns?
-  value: ((dns_publish_fqdns))
+  value: ((dns_publish_gitea))
+
+- type: replace
+  path: /instance_groups/name=caddy-gitea/tags?/fqdns?
+  value: ((dns_publish_pages))

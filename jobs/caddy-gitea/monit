@@ -1,0 +1,5 @@
+check process caddy-gitea
+  with pidfile /var/vcap/sys/run/bpm/caddy-gitea/caddy-gitea.pid
+  start program "/var/vcap/jobs/bpm/bin/bpm start caddy-gitea"
+  stop program "/var/vcap/jobs/bpm/bin/bpm stop caddy-gitea"
+  group vcap

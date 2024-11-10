@@ -1,0 +1,22 @@
+#!/usr/bin/bash
+
+tokenFile="/var/vcap/store/caddy-gitea/.token"
+
+count=$(curl -k --no-progress-meter -X 'GET' \
+    'https://gitea.internal/api/v1/users/<%= p("registration.username") %>/tokens' \
+    --user '<%= p("registration.username") %>:<%= p("registration.password") %>' |
+    grep "pages-token" | wc -l)
+
+if [ "${count}" -eq 0 -o ! -f "${tokenFile}" ]
+then
+    printf "Adding 'pages-token'.\n"
+    curl -k --no-progress-meter -X 'POST' \
+        'https://gitea.internal/api/v1/users/<%= p("registration.username") %>/tokens' \
+        --user '<%= p("registration.username") %>:<%= p("registration.password") %>' \
+        --data-ascii '{"name":"pages-token","scopes":["read:repository"]}' \
+        -H "Content-Type: application/json" | 
+        python3 -c "import sys, json; print(json.load(sys.stdin)['sha1'])" \
+        > ${tokenFile}
+else
+    printf "'pages-token' exists.\n"
+fi

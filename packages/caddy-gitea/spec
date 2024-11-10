@@ -1,0 +1,7 @@
+---
+name: caddy-gitea
+
+dependencies:
+- golang-1-linux
+
+files: []

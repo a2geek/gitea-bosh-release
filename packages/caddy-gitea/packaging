@@ -1,0 +1,21 @@
+set -ex
+
+if [ -z "${BOSH_PACKAGES_DIR}" ]; then
+	pkg_dir=$(readlink -nf /var/vcap/packages/golang-1-linux)
+else
+	pkg_dir=${BOSH_PACKAGES_DIR}/golang-1-linux
+fi
+
+source ${pkg_dir}/bosh/compile.env
+
+# Since HOME is not set we must set GOPATH and GOCACHE
+mkdir -p /tmp/go/.cache
+export GOPATH=/tmp/go
+export GOCACHE=${GOPATH}/.cache
+
+mkdir -p ${BOSH_INSTALL_TARGET}/bin
+
+go install github.com/caddyserver/xcaddy/cmd/xcaddy@latest
+cp ${GOPATH}/bin/xcaddy ${BOSH_INSTALL_TARGET}/bin
+chmod +x ${BOSH_INSTALL_TARGET}/bin
+${BOSH_INSTALL_TARGET}/bin/xcaddy build --output $BOSH_INSTALL_TARGET/bin/caddy-gitea  --with github.com/42wim/caddy-gitea@v0.0.4
