@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/bash -e
 
 function check_user {
     username="$1"
@@ -23,6 +23,13 @@ function check_user {
     fi
 }
 
+
+if [ -f /var/vcap/jobs/bosh-dns/bin/is-system-resolver ]; then
+  if (/var/vcap/jobs/bosh-dns/bin/is-system-resolver); then
+    echo "waiting for bosh_dns"
+    /var/vcap/jobs/bosh-dns/bin/wait
+  fi
+fi
 
 source /var/vcap/jobs/gitea/config/env.sh
 
