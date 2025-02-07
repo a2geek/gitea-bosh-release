@@ -1,0 +1,8 @@
+---
+- type: replace
+  path: /instance_groups/name=postgres/azs
+  value: ((azs_list))
+
+- type: replace
+  path: /instance_groups/name=postgres/networks
+  value: ((networks_list))

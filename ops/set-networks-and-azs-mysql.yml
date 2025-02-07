@@ -1,0 +1,8 @@
+---
+- type: replace
+  path: /instance_groups/name=mysql/azs
+  value: ((azs_list))
+
+- type: replace
+  path: /instance_groups/name=mysql/networks
+  value: ((networks_list))
