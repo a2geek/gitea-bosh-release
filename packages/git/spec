@@ -4,4 +4,4 @@ name: git
 dependencies: []
 
 files:
-- git/git-2.47.0.tar.gz
+- git/git-*.tar.gz
