@@ -4,16 +4,16 @@ name: gitea
 releases:
 - name: gitea
   version: v2
-  url: https://github.com/a2geek/gitea-bosh-release/releases/download/v2/gitea-bosh-release.tgz
-  sha1: a0632abbd4e178133fac75350746875266916321
+  url: https://github.com/a2geek/gitea-bosh-release/releases/download/v3/gitea-bosh-release.tgz
+  sha1: 1d1b197a29e47f48b39af7cc3ef0eb237398a239
 - name: "bpm"
-  version: "1.4.1"
-  url: "https://bosh.io/d/github.com/cloudfoundry/bpm-release?v=1.4.1"
-  sha1: "1d2f22a5d024cb34f6d7d2da3f1ee95e4a8cdd61"
+  version: "1.4.13"
+  url: "https://bosh.io/d/github.com/cloudfoundry/bpm-release?v=1.4.13"
+  sha1: "4c92015bc0610bd2e757593b4c643655f7f89fb7"
 - name: "os-conf"
-  version: "22.3.0"
-  url: "https://bosh.io/d/github.com/cloudfoundry/os-conf-release?v=22.3.0"
-  sha1: "0f88a29315d8d9f900bb30a81c0eaf6d34a61639"
+  version: "22.3.1"
+  url: "https://bosh.io/d/github.com/cloudfoundry/os-conf-release?v=22.3.1"
+  sha1: "9276888fc54d22950045a247d348142757ae9129"
 
 instance_groups:
 - name: gitea
