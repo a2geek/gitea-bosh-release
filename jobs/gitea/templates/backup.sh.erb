@@ -1,0 +1,5 @@
+#!/bin/bash
+
+source /var/vcap/jobs/gitea/config/env.sh
+chown vcap:vcap ${BBR_ARTIFACT_DIRECTORY}
+${GITEA} dump --verbose --file ${BBR_ARTIFACT_DIRECTORY}/gitea-dump.zip

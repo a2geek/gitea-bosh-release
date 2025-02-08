@@ -6,6 +6,8 @@ templates:
   config.yaml.erb: config/config.yaml
   start.erb: bin/start
   aliases.json.erb: dns/aliases.json
+  pre-backup-lock.sh.erb: bin/bbr/pre-backup-lock
+  post-backup-unlock.sh.erb: bin/bbr/post-backup-unlock
 
 packages:
 - act_runner

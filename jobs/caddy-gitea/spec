@@ -9,6 +9,8 @@ templates:
   public.pem.erb: config/certs/public.pem
   private.pem.erb: config/certs/private.pem
   aliases.json.erb: dns/aliases.json
+  pre-backup-lock.sh.erb: bin/bbr/pre-backup-lock
+  post-backup-unlock.sh.erb: bin/bbr/post-backup-unlock
 
 packages:
 - caddy-gitea
