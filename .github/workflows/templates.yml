@@ -47,4 +47,4 @@ jobs:
         bundle install
         gem install bosh-template
         gem install rspec
-        rspec dns-publisher-config_spec.rb
+        rspec gitea-app-ini_spec.rb
