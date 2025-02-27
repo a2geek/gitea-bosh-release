@@ -10,7 +10,8 @@ gitea/gitea-1.23.3-linux-amd64.xz:
   size: 41746628
   object_id: 911dbef2-1370-4598-4d27-8b2173010a02
   sha: sha256:1843eb9a51557a0bbc838e61fd502983e57053916d31aef6286da32f5c485bd4
-node/node-v20.18.2-linux-x64.tar.xz:
-  size: 25826956
-  object_id: cb63a560-8acb-425a-7be3-857663ca1460
-  sha: sha256:4e50f727ae09bdafecf2322c72faf7cd82bf3b8851a16b8bb63974e0d8d6eceb
+node/node-v20.18.3-linux-x64.tar.xz:
+  size: 25810368
+  object_id: f5f873fa-4ef8-4f16-61f6-4723a38b006e
+  sha: sha256:595bcc9a28e6d1ee5fc7277b5c3cb029275b98ec0524e162a0c566c992a7ee5c
+  href: https://nodejs.org/dist/v20.18.3/node-v20.18.3-linux-x64.tar.xz
