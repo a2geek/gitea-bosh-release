@@ -34,6 +34,22 @@
             ca: ((postgres_cert.ca))
             certificate: ((postgres_cert.certificate))
             private_key: ((postgres_cert.private_key))
+    - name: bbr-postgres-db
+      release: postgres
+    - name: gitea-db-dns
+      release: gitea
+      properties:
+        database:
+          type: postgres
+
+- type: replace
+  path: /instance_groups/name=gitea/jobs/-
+  value:
+    name: gitea-db-dns
+    release: gitea
+    properties:
+      database:
+        type: postgres
 
 - type: replace
   path: /variables/-
@@ -58,7 +74,7 @@
     options:
       ca: postgres_ca
       common_name: database.gitea.internal
-      alternative_names: [database.gitea.internal]
+      alternative_names: [database.gitea.internal,localhost]
       extended_key_usage:
       - server_auth
 

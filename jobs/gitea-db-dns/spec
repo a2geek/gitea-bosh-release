@@ -1,0 +1,12 @@
+---
+name: gitea-db-dns
+
+templates:
+  aliases.json.erb: dns/aliases.json
+
+packages: []
+
+properties:
+  database.type:
+    description: "The database type in use [mysql, postgres]."
+    example: "mysql"

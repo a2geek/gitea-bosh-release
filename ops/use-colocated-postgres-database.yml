@@ -22,6 +22,21 @@
           password: ((gitea_postgres_password))
 
 - type: replace
+  path: /instance_groups/name=gitea/jobs/-
+  value:
+    name: bbr-postgres-db
+    release: postgres
+
+- type: replace
+  path: /instance_groups/name=gitea/jobs/-
+  value:
+    name: gitea-db-dns
+    release: gitea
+    properties:
+      database:
+        type: postgres
+
+- type: replace
   path: /variables/-
   value:
     name: gitea_postgres_password

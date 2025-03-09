@@ -1,0 +1,20 @@
+#!/bin/bash
+
+source /var/vcap/jobs/gitea/config/env.sh
+
+# Gitea backup file inside the tar
+tar xf ${BBR_ARTIFACT_DIRECTORY}/gitea-0-gitea.tar -C ${BBR_ARTIFACT_DIRECTORY}
+
+# Restore data directory
+cd /var/vcap/store/gitea
+rm -rf data
+unzip ${BBR_ARTIFACT_DIRECTORY}/gitea-dump.zip "data/*"
+
+# Restore repositories
+cd /var/vcap/store
+rm -rf repositories
+unzip ${BBR_ARTIFACT_DIRECTORY}/gitea-dump.zip "repos/*"
+mv repos repositories
+
+# Fix permissions
+chown -R vcap:vcap /var/vcap/store/{gitea,repositories}

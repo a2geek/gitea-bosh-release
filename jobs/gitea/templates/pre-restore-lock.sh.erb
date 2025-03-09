@@ -1,0 +1,7 @@
+#!/bin/bash
+
+monit stop gitea
+
+# wait for process to finish (see https://stackoverflow.com/questions/1058047/wait-for-a-process-to-finish)
+source /var/vcap/jobs/bpm/bin/setup
+tail --pid=$(bpm pid gitea) -f /dev/null

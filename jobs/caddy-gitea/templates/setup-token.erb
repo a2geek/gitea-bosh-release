@@ -1,6 +1,6 @@
 #!/usr/bin/bash
 
-tokenFile="/var/vcap/store/caddy-gitea/.token"
+source /var/vcap/jobs/caddy-gitea/config/env.sh
 
 count=$(curl -k --no-progress-meter -X 'GET' \
     'https://gitea.internal/api/v1/users/<%= p("registration.username") %>/tokens' \

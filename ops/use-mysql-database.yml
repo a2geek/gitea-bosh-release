@@ -8,6 +8,14 @@
     sha1: "e2e951dfe9e374d3715d3156bf1132a4e0ffb2a5"
 
 - type: replace
+  path: /releases/-
+  value:
+    name: "backup-and-restore-sdk"
+    version: "1.19.45"
+    url: "https://bosh.io/d/github.com/cloudfoundry-incubator/backup-and-restore-sdk-release?v=1.19.45"
+    sha1: "af0c1cd711cde2125854737bc4f6ab20fb6f203c"
+
+- type: replace
   path: /instance_groups/-
   value:
     name: mysql
@@ -34,6 +42,32 @@
             host: any
             role: schema-admin
             schema: gitea
+    - name: gitea-db-bbr
+      release: gitea
+      properties:
+        database:
+          type: mysql
+          host: database.gitea.internal
+          port: 3306
+          # dbname: gitea
+          username: gitea
+          password: ((mysql_gitea_password))
+    - name: database-backup-restorer
+      release: backup-and-restore-sdk
+    - name: gitea-db-dns
+      release: gitea
+      properties:
+        database:
+          type: mysql
+
+- type: replace
+  path: /instance_groups/name=gitea/jobs/-
+  value:
+    name: gitea-db-dns
+    release: gitea
+    properties:
+      database:
+        type: mysql
 
 - type: replace
   path: /variables/-

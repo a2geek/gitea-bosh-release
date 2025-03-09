@@ -2,6 +2,7 @@
 name: caddy-gitea
 
 templates:
+  env.sh.erb: config/env.sh
   setup-token.erb: bin/setup-token
   start.erb: bin/start
   bpm.yml.erb: config/bpm.yml
@@ -10,7 +11,11 @@ templates:
   private.pem.erb: config/certs/private.pem
   aliases.json.erb: dns/aliases.json
   pre-backup-lock.sh.erb: bin/bbr/pre-backup-lock
+  backup.sh.erb: bin/bbr/backup
   post-backup-unlock.sh.erb: bin/bbr/post-backup-unlock
+  pre-restore-lock.sh.erb: bin/bbr/pre-restore-lock
+  restore.sh.erb: bin/bbr/restore
+  post-restore-unlock.sh.erb: bin/bbr/post-restore-unlock
 
 packages:
 - caddy-gitea

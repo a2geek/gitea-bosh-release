@@ -1,6 +1,6 @@
 #!/usr/bin/bash
 
-tokenFile="/var/vcap/store/caddy-gitea/.token"
+source /var/vcap/jobs/caddy-gitea/config/env.sh
 
 export GITEA_TOKEN="$(cat ${tokenFile})"
 export XDG_DATA_HOME="/var/vcap/store/caddy-gitea"
