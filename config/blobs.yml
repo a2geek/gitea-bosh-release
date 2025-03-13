@@ -6,12 +6,11 @@ gitea/act_runner-0.2.11-linux-amd64.xz:
   size: 5543564
   object_id: c0aaeb77-ff91-490a-79ed-8c24c8a7d2d0
   sha: sha256:6099bccc2876cb760f5443e88c8b2e1a52f226f485152fc6f711b3bb3f49501c
-gitea/gitea-1.23.3-linux-amd64.xz:
-  size: 41746628
-  object_id: 911dbef2-1370-4598-4d27-8b2173010a02
-  sha: sha256:1843eb9a51557a0bbc838e61fd502983e57053916d31aef6286da32f5c485bd4
-node/node-v20.18.3-linux-x64.tar.xz:
-  size: 25810368
-  object_id: f5f873fa-4ef8-4f16-61f6-4723a38b006e
-  sha: sha256:595bcc9a28e6d1ee5fc7277b5c3cb029275b98ec0524e162a0c566c992a7ee5c
-  href: https://nodejs.org/dist/v20.18.3/node-v20.18.3-linux-x64.tar.xz
+gitea/gitea-1.23.5-linux-amd64.xz:
+  size: 41760000
+  object_id: 1645b8fb-f7ee-42b8-7d02-955b174e78c0
+  sha: sha256:57ddfffb3b0e0491b8b4a965d02e24ceace13a9cff13cff56928c7553c8badf1
+node/node-v20.19.0-linux-x64.tar.xz:
+  size: 25987932
+  object_id: e76f4ddb-1e30-45cc-7bde-81e75002f169
+  sha: sha256:b4e336584d62abefad31baecff7af167268be9bb7dd11f1297112e6eed3ca0d5
