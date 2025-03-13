@@ -3,13 +3,13 @@ name: gitea
 
 releases:
 - name: gitea
-  version: v3
-  url: https://github.com/a2geek/gitea-bosh-release/releases/download/v3/gitea-bosh-release.tgz
-  sha1: 1d1b197a29e47f48b39af7cc3ef0eb237398a239
+  version: v4
+  url: https://github.com/a2geek/gitea-bosh-release/releases/download/v4/gitea-bosh-release.tgz
+  sha1: ac333c9c49eeb5db9599f237aa26b8c34976ba339e131e8de0919eb488161dab
 - name: "bpm"
-  version: "1.4.13"
-  url: "https://bosh.io/d/github.com/cloudfoundry/bpm-release?v=1.4.13"
-  sha1: "4c92015bc0610bd2e757593b4c643655f7f89fb7"
+  version: "1.4.16"
+  url: "https://bosh.io/d/github.com/cloudfoundry/bpm-release?v=1.4.16"
+  sha1: "2adc0fc33b9ae0b7f49f5ffbacf4160779a2728a"
 - name: "os-conf"
   version: "22.3.0"
   url: "https://bosh.io/d/github.com/cloudfoundry/os-conf-release?v=22.3.0"

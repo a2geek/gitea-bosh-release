@@ -1,0 +1,76 @@
+name: gitea
+version: v4
+commit_hash: 462ba8d
+uncommitted_changes: false
+jobs:
+- name: act_runner
+  version: b0f05096370ba7193d22a775d65cc1549392d448b1886090301d552deae5f663
+  fingerprint: b0f05096370ba7193d22a775d65cc1549392d448b1886090301d552deae5f663
+  sha1: sha256:7e313281c829460f8c14ed2e59713189822a34d1aed24bce60b57f465d673643
+  packages:
+  - act_runner
+- name: caddy-gitea
+  version: fff8802ed54810c2aee0599e447c107d84e5a8c0f192b99305602aa8b0af5c62
+  fingerprint: fff8802ed54810c2aee0599e447c107d84e5a8c0f192b99305602aa8b0af5c62
+  sha1: sha256:38808897d2c85da50514a613ceab6f63eaf52590e0452ab2d2d629b3584f4dab
+  packages:
+  - caddy-gitea
+- name: git
+  version: 2e61117851843c0b1f2c2e5d3e4045ee2762383bd4af2c8138cf3063a2646400
+  fingerprint: 2e61117851843c0b1f2c2e5d3e4045ee2762383bd4af2c8138cf3063a2646400
+  sha1: sha256:2e3ec2b29ed0f31ab865088226ad6d486c677597dfde0ce49f8970951a98deaa
+  packages:
+  - git
+- name: gitea
+  version: 8a28159b25c34b4b96145d80b294b9ba34cf4dcd9a71537cbbd0a28a1102c0dd
+  fingerprint: 8a28159b25c34b4b96145d80b294b9ba34cf4dcd9a71537cbbd0a28a1102c0dd
+  sha1: sha256:a3faaba739a2b0f7677016a4ce63fa8b89912771ecaf66184de8f793c42fe21a
+  packages:
+  - gitea
+- name: gitea-db-dns
+  version: cc67d8b762fe93b021df8a9aa70397a1d9e7671ec03a034807b31a2783ae82da
+  fingerprint: cc67d8b762fe93b021df8a9aa70397a1d9e7671ec03a034807b31a2783ae82da
+  sha1: sha256:144ce47f9d74cf9916032ada394e19cd503da7ae097222821b86ac9148a556e5
+  packages: []
+- name: node20
+  version: c59b61106b06b5ef3084ed87b1a84aa0f560d9ddd325380d192be6de17776ca1
+  fingerprint: c59b61106b06b5ef3084ed87b1a84aa0f560d9ddd325380d192be6de17776ca1
+  sha1: sha256:59d2bd139d7c96182eeff4586fae41a64129c9a87f17f4ed48c73c83ee45fa84
+  packages:
+  - node20
+packages:
+- name: act_runner
+  version: 65b477bc0da9b2455b4b76cbec0ca4c67b36871b3be07b28e7de37a6314c52e4
+  fingerprint: 65b477bc0da9b2455b4b76cbec0ca4c67b36871b3be07b28e7de37a6314c52e4
+  sha1: sha256:3dbe9984e0109120da097f6c854f7c1129c5ac211063e51ca214a23fa4c93603
+  dependencies: []
+- name: caddy-gitea
+  version: 542469d6e94353b5af28b8b3c4b6cd0ff57c7e5b848fec4756767e5c31be2cab
+  fingerprint: 542469d6e94353b5af28b8b3c4b6cd0ff57c7e5b848fec4756767e5c31be2cab
+  sha1: sha256:d6b40a31d3a5b5905ea03764c3889ca8f30737ac30a81dc7f590f008da2f2e3e
+  dependencies:
+  - golang-1-linux
+- name: git
+  version: 6d0895aee19e5e624268c3442552635054555d12939c3ad0381212971147beac
+  fingerprint: 6d0895aee19e5e624268c3442552635054555d12939c3ad0381212971147beac
+  sha1: sha256:4332a740ca91bcc1205b9c08be06bb4dff7b34de316b3edf04bd3761b8852bbb
+  dependencies: []
+- name: gitea
+  version: 2a07e82ce342402c68a6a8c09ead20913edb2e4dd2abf6474570daa3492eb546
+  fingerprint: 2a07e82ce342402c68a6a8c09ead20913edb2e4dd2abf6474570daa3492eb546
+  sha1: sha256:5fedc3a14f43d1378c11e6391bad6e3d433c8465a52999d21adf20b8079eaf11
+  dependencies: []
+- name: golang-1-linux
+  version: 1a2ae8de36deb65e55aa430e8b56ccdc1737e2452b14e338bb26af6cb6d29afb
+  fingerprint: 1a2ae8de36deb65e55aa430e8b56ccdc1737e2452b14e338bb26af6cb6d29afb
+  sha1: sha256:4cb8a116c9968da668c5707c7246c9e95cec885c7198b8d3bc4fb63d63eef01c
+  dependencies: []
+- name: node20
+  version: befa1efdb77aa4f60346a74a17eb4d93c08e6a364acb7f8b5286d6bd1f879bfa
+  fingerprint: befa1efdb77aa4f60346a74a17eb4d93c08e6a364acb7f8b5286d6bd1f879bfa
+  sha1: sha256:b974fd4aa809bca0b6ae575b8917ed8640d70d321160c7acf75e885da16aa017
+  dependencies: []
+license:
+  version: b531f7c93af196c2f0b9f2f94149f6e4f64c1f20b0fdc54bf7dd6bf34bee8492
+  fingerprint: b531f7c93af196c2f0b9f2f94149f6e4f64c1f20b0fdc54bf7dd6bf34bee8492
+  sha1: sha256:b50d144aaab6ce867aee83ac4bd6695f74f7e31201bafdd648380b3caefc40a4
