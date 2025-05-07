@@ -5,6 +5,7 @@ These ops files are supplied to help configure Gitea and the action runners.
 | Name | Description |
 | :--- | :--- |
 | `dev.yml` | Used for development to use the latest uploaded version of the Gitea BOSH release. |
+| `remove-caddy.yml` | Disable the Caddy-Gitea deployment. Caddy can be problematic, and this allows it to be skipped and not compiled. |
 | `scale-action-runners.yml` | Allows scaling of the number of instances (`action_runner_instances`, default `1`) and the capacity (`action_runner_capacity`, default `4`). |
 | `set-networks-and-azs-mysql.yml` | Sets the networks (`networks_list`) and azs (`azs_list`) for MySQL. |
 | `set-networks-and-azs-postgres.yml` | Sets the networks (`networks_list`) and azs (`azs_list`) for Postgres. |
