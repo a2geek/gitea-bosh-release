@@ -15,7 +15,7 @@ export GOCACHE=${GOPATH}/.cache
 
 mkdir -p ${BOSH_INSTALL_TARGET}/bin
 
-go install github.com/caddyserver/xcaddy/cmd/xcaddy@latest
+go install github.com/caddyserver/xcaddy/cmd/xcaddy@v0.4.4
 cp ${GOPATH}/bin/xcaddy ${BOSH_INSTALL_TARGET}/bin
 chmod +x ${BOSH_INSTALL_TARGET}/bin
 ${BOSH_INSTALL_TARGET}/bin/xcaddy build --output $BOSH_INSTALL_TARGET/bin/caddy-gitea  --with github.com/42wim/caddy-gitea@v0.0.4
