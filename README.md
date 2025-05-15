@@ -19,7 +19,6 @@ Configuration is fairly simple at this time. Required variables (say, in `vars.y
 gitea_server_domain: <gitea domain, ex: gitea.gdc.lan>
 gitea_admin_username: <primary admin user>
 gitea_admin_email: <primary admin email>
-pages_domain: <pages domain, ex: pages.gdc.lan>
 ```
 
 The primary admin will have the default pasword of `changeme` and Gitea will require the admin user to change the password.
