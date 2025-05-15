@@ -1,0 +1,37 @@
+---
+- type: replace
+  path: /instance_groups/-
+  value:
+    name: caddy-gitea
+    instances: 1
+    azs: [z1, z2, z3]
+    networks: [{name: default}]
+    vm_type: default
+    stemcell: default
+    persistent_disk: 10240
+    jobs:
+    - name: bpm
+      release: bpm
+    - name: ca_certs
+      release: os-conf
+      properties:
+        certs: ((gitea_web.certificate))
+    - name: caddy-gitea
+      release: gitea
+      properties:
+        pages_domain: ((pages_domain))
+        https:
+          certificate: ((pages_web.certificate))
+          private_key: ((pages_web.private_key))
+        registration:
+          password: ((gitea_registration_password))
+
+- type: replace
+  path: /variables/-
+  value:
+    name: pages_web
+    type: certificate
+    options:
+      ca: gitea_ca
+      common_name: '*.((pages_domain))'
+      alternative_names: ['*.((pages_domain))']

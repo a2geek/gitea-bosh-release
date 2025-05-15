@@ -1,0 +1,29 @@
+---
+- type: replace
+  path: /instance_groups/-
+  value:
+    name: action-runner
+    instances: 1
+    azs: [z1, z2, z3]
+    networks: [{name: default}]
+    vm_type: default
+    stemcell: default
+    persistent_disk: 10240
+    jobs:
+    - name: bpm
+      release: bpm
+    - name: git
+      release: gitea
+    - name: node20
+      release: gitea
+    - name: ca_certs
+      release: os-conf
+      properties:
+        certs: ((gitea_web.certificate))
+    - name: act_runner
+      release: gitea
+      properties:
+        runner:
+          capacity: 4
+        registration:
+          password: ((gitea_registration_password))

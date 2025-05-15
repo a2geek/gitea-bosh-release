@@ -1,0 +1,8 @@
+---
+- type: replace
+  path: /instance_groups/name=action-runner/azs
+  value: ((azs_list))
+
+- type: replace
+  path: /instance_groups/name=action-runner/networks
+  value: ((networks_list))

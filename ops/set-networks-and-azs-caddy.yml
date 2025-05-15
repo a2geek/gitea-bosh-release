@@ -1,0 +1,8 @@
+---
+- type: replace
+  path: /instance_groups/name=caddy-gitea/azs
+  value: ((azs_list))
+
+- type: replace
+  path: /instance_groups/name=caddy-gitea/networks
+  value: ((networks_list))
