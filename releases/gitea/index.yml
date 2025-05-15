@@ -7,4 +7,6 @@ builds:
     version: v1
   9fcd8a9b-ed15-48d1-7f01-1594073fbab9:
     version: v2
+  d9fabf93-0425-4886-75e5-b724b30ed04b:
+    version: v5
 format-version: "2"
