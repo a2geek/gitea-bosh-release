@@ -1,16 +1,16 @@
-git/git-2.50.0.tar.gz:
-  size: 11769180
-  object_id: e3e02732-3f73-49d2-6a71-0c2f44b6e673
-  sha: sha256:07d75fb5438d7bd2e3353a18abef34a2e143edcd62679f0907440d9529735d43
-gitea/act_runner-0.2.12-linux-amd64.xz:
-  size: 5757536
-  object_id: f535ee70-137a-4bd5-48f4-285c17d6f9c4
-  sha: sha256:0b6d1ca5487e737bc67ecb440997dff412dd63d65b291eddcb69aec9cb61ebbf
-gitea/gitea-1.24.2-linux-amd64.xz:
-  size: 40839848
-  object_id: 7354826e-e205-4e4a-4f35-7e69a3cfbeca
-  sha: sha256:66053663c2fe2a91f99b82c770f4d9150d52f10598f12f8dc3f963f95b4f443f
-node/node-v20.19.3-linux-x64.tar.xz:
-  size: 26012076
-  object_id: ae7a3524-9bce-4826-692f-92651ccd207d
-  sha: sha256:c210e1a547efad55e93af1e04fb80d2f7131b13872f2de4e9ebdfecb8e06caad
+git/git-2.51.0.tar.gz:
+  size: 11750213
+  object_id: 02b1c4c5-4692-402b-78d0-af666b7530a4
+  sha: sha256:3524fc5fd81f16f80e1696a8281bd8ad831048b67848015d7b7382bf365ae685
+gitea/act_runner-0.2.13-linux-amd64.xz:
+  size: 5755556
+  object_id: d90d488d-460a-44b5-4edd-7f326bda5a9c
+  sha: sha256:759821f7afc40afb9d0e55c07b7832e0fa08374e0f2b9626516156903cd632ad
+gitea/gitea-1.24.6-linux-amd64.xz:
+  size: 40837320
+  object_id: 308e24ac-20c1-4e88-4d91-0b1fcf89edde
+  sha: sha256:0ddb403f49d55bff685a1eece2d94a25c31524de9e1f119d387382f31ee2bdbb
+node/node-v20.19.5-linux-x64.tar.xz:
+  size: 25851940
+  object_id: 31be3980-fbc5-4ed0-76aa-9bf188d8d401
+  sha: sha256:315046739a513a70e03a4a55a8afda8cf979f30852e576075c340084e3f8ac0f
