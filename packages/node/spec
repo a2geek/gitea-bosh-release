@@ -1,0 +1,7 @@
+---
+name: node
+
+dependencies: []
+
+files:
+- node/node-*-linux-x64.tar.xz

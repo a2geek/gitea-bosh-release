@@ -1,11 +1,11 @@
 ---
-name: node20
+name: node
 
 templates:
   pre-start.erb: bin/pre-start
   setup.erb: bin/setup
 
 packages:
-- node20
+- node
 
 properties: {}

@@ -1,0 +1,5 @@
+#!/bin/bash
+
+if ! echo $PATH | grep -q 'node'; then
+  export PATH=/var/vcap/packages/node/bin:$PATH
+fi

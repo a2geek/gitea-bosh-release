@@ -14,7 +14,7 @@
       release: bpm
     - name: git
       release: gitea
-    - name: node20
+    - name: node
       release: gitea
     - name: ca_certs
       release: os-conf

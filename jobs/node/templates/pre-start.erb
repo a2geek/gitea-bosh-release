@@ -1,0 +1,5 @@
+#!/bin/bash
+
+cp /var/vcap/jobs/node/bin/setup /etc/profile.d/node.sh
+chown :vcap /etc/profile.d/node.sh
+echo "Finished node pre-start"
