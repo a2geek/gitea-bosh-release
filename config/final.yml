@@ -1,6 +1,5 @@
----
 blobstore:
-  provider: s3
-  options:
-    bucket_name: gitea-bosh-release
+    provider: local
+    options:
+        blobstore_path: final_blobs
 final_name: gitea
