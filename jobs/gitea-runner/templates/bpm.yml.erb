@@ -1,0 +1,18 @@
+processes:
+- name: gitea-runner
+  executable: /var/vcap/jobs/gitea-runner/bin/start
+
+  persistent_disk: true
+  
+  #
+  # Note: we need to be allowed to execute downloaded content. "persistent_disk" does not allow this.
+  #   ... but we cannot mount "/var/vcap/store/runner_workdir" since that is the persistent disk name.
+  #
+  #       ¯\_(ツ)_/¯
+  #
+  additional_volumes:
+  - path: /var/vcap/store/runner_workdir
+    writable: true
+    allow_executions: true
+  - path: /var/vcap/sys/run/dockerd/docker.sock
+    writable: true

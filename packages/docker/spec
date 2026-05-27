@@ -1,0 +1,8 @@
+---
+name: docker
+
+dependencies: []
+
+files:
+- docker/docker-*.tgz
+- docker/runtime.env

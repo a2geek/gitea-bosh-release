@@ -1,0 +1,29 @@
+---
+name: gitea-runner
+
+templates:
+  bpm.yml.erb: config/bpm.yml
+  config.yaml.erb: config/config.yaml
+  start.erb: bin/start
+  aliases.json.erb: dns/aliases.json
+  pre-backup-lock.sh.erb: bin/bbr/pre-backup-lock
+  backup.sh.erb: bin/bbr/backup
+  post-backup-unlock.sh.erb: bin/bbr/post-backup-unlock
+  pre-restore-lock.sh.erb: bin/bbr/pre-restore-lock
+  restore.sh.erb: bin/bbr/restore
+  post-restore-unlock.sh.erb: bin/bbr/post-restore-unlock
+
+packages:
+- gitea-runner
+
+properties:
+  runner.capacity:
+    description: "Execute how many tasks concurrently at the same time."
+    default: "1"
+
+  # Temporary hack?
+  registration.username:
+    description: "Username for registering the Gitea runner."
+    default: "gitea-runner"
+  registration.password:
+    description: "Password for registering the Gitea runner."

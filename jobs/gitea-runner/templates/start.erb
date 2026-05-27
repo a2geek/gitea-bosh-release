@@ -1,0 +1,26 @@
+#!/bin/bash
+
+export PATH=/var/vcap/packages/git/bin:${PATH}
+export HOME="/var/vcap/store/gitea-runner"
+export GITEA_INSTANCE_URL='https://gitea.internal'
+
+cd ${HOME}
+
+if [ ! -f .runner ]
+then
+  token=$(curl -k --no-progress-meter \
+      -X 'POST' 'https://gitea.internal/api/v1/admin/actions/runners/registration-token' \
+      -H 'accept: text/plain' \
+      --user '<%= p("registration.username") %>:<%= p("registration.password") %>' | 
+    python3 -c "import sys, json; print(json.load(sys.stdin)['token'])")
+
+  /var/vcap/packages/gitea-runner/bin/gitea-runner register \
+      --instance 'https://gitea.internal' \
+      --config /var/vcap/jobs/gitea-runner/config/config.yaml \
+      --name '<%= spec.name %>/<%= spec.index %>' \
+      --token "${token}" \
+      --no-interactive
+fi
+
+/var/vcap/packages/gitea-runner/bin/gitea-runner daemon \
+  --config /var/vcap/jobs/gitea-runner/config/config.yaml

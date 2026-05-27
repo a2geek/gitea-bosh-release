@@ -1,0 +1,11 @@
+---
+name: dockerd
+
+templates:
+  config.json.erb: config/config.json
+  ctl.erb: bin/ctl
+
+packages:
+- docker
+
+properties: {}

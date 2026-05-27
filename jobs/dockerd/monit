@@ -1,0 +1,9 @@
+#
+# Assuming that Docker (a container manager) running in BPM (sort of a container manager) is a Bad Thing. 
+# Running old school!
+#
+check process dockerd
+  with pidfile /var/vcap/sys/run/dockerd/pid
+  start program "/var/vcap/jobs/dockerd/bin/ctl start"
+  stop program "/var/vcap/jobs/dockerd/bin/ctl stop"
+  group vcap

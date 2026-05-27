@@ -1,0 +1,8 @@
+---
+- type: replace
+  path: /instance_groups/name=action-runner/instances
+  value: ((gitea_runner_instances))
+
+- type: replace
+  path: /instance_groups/name=action-runner/jobs/name=gitea-runner/properties/runner/capacity
+  value: ((gitea_runner_capacity))

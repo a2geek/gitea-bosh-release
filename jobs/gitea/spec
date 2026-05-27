@@ -67,7 +67,7 @@ properties:
 
   # Temporary hack?
   registration.username:
-    description: "Username for registering the action runner."
-    default: "act_runner"
+    description: "Username for registering the Gitea runner."
+    default: "gitea-runner"
   registration.password:
-    description: "Password for registering the action runner."
+    description: "Password for registering the Gitea runner."

@@ -1,0 +1,5 @@
+check process gitea-runner
+  with pidfile /var/vcap/sys/run/bpm/gitea-runner/gitea-runner.pid
+  start program "/var/vcap/jobs/bpm/bin/bpm start gitea-runner"
+  stop program "/var/vcap/jobs/bpm/bin/bpm stop gitea-runner"
+  group vcap

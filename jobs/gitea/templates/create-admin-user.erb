@@ -31,6 +31,22 @@ function check_user {
     fi
 }
 
+function cleanup_user {
+    username="$1"
+
+    count=$(${GITEA} admin user list \
+        --admin | grep "${username}" | wc -l)
+
+    if [ "${count}" -eq "1" ]
+    then
+        printf 'Deleting user "%s".\n' "${username}"
+        ${GITEA} admin user delete \
+            --username "${username}"
+    else
+        printf 'User "%s" does not exist.\n' "${username}"
+    fi
+}
+
 
 if [ -f /var/vcap/jobs/bosh-dns/bin/is-system-resolver ]; then
   if (/var/vcap/jobs/bosh-dns/bin/is-system-resolver); then
@@ -43,6 +59,9 @@ source /var/vcap/jobs/gitea/config/env.sh
 
 # Will create the database so we can add the admin user before Gitea runs
 ${GITEA} migrate
+
+# Need to delete any of the old act_runner ids
+cleanup_user 'act_runner'
 
 check_user '<%= p("admin.username") %>' 'changeme' '<%= p("admin.email") %>' true false
 check_user '<%= p("registration.username") %>' '<%= p("registration.password") %>' 'fake@fake.fake' false true

@@ -32,7 +32,7 @@ properties:
 
   # Temporary hack?
   registration.username:
-    description: "Username for registering the action runner and creating pages tokens."
-    default: "act_runner"
+    description: "Username for registering the Gitea runner and creating pages tokens."
+    default: "gitea-runner"
   registration.password:
-    description: "Password for registering the action runner and creating pages tokens."
+    description: "Password for registering the Gitea runner and creating pages tokens."

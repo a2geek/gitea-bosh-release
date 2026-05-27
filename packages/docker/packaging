@@ -1,0 +1,5 @@
+set -ex
+
+mkdir -p ${BOSH_INSTALL_TARGET}/{bin,bosh}
+tar xzvf docker/docker-*.tgz --strip-components=1 --directory=${BOSH_INSTALL_TARGET}/bin
+cp docker/runtime.env ${BOSH_INSTALL_TARGET}/bosh

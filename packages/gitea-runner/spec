@@ -1,10 +1,7 @@
 ---
-name: gitea
+name: gitea-runner
 
 dependencies: []
 
 files:
-- gitea/gitea-*-linux-amd64.xz
-
-excluded_files:
 - gitea/gitea-runner-*-linux-amd64.xz

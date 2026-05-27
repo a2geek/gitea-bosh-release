@@ -1,8 +1,8 @@
 # Gitea BOSH Release
 
-This is a BOSH release to deploy Gitea along with the specified number of action runners via [act_runner](https://gitea.com/gitea/act_runner) and support for Gitea pages via [caddy-gitea](https://github.com/42wim/caddy-gitea).
+This is a BOSH release to deploy Gitea along with the specified number of Gitea runners via [gitea-runner](https://gitea.com/gitea/runner) and support for Gitea pages via [caddy-gitea](https://github.com/42wim/caddy-gitea).
 
-The current configuration is to run the `act_runner` via BPM and bypass Docker completely. (It appears that Docker is just a container for the action to run in -- that is, the `act_runner` container, so there is little benefit to Docker over any other container.) The `git` CLI is installed on both the Gitea and the runner nodes, while Node v20 is installed on the runner nodes (as this is required for most actions).
+The current configuration is to run the `gitea-runner` via BPM but run actions via Docker. The `git` CLI is installed on both the Gitea and the runner nodes.
 
 "caddy-gitea" has a dependency on Caddy, so the build requires internet access. This builds the caddy tooling, which then allows caddy-gitea to be built. Be warned that due to the online nature of this build, the Go dependencies may change and cause grief. (Hence, the dependency is an option instead of a default.)
 
