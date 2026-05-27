@@ -12,8 +12,6 @@
     jobs:
     - name: bpm
       release: bpm
-    - name: git
-      release: gitea
     - name: ca_certs
       release: os-conf
       properties:
