@@ -4,7 +4,7 @@
   value:
     name: gitea-runner
     instances: 1
-    azs: [z1, z2, z3]
+    azs: [z1, z2]
     networks: [{name: default}]
     vm_type: default
     stemcell: default

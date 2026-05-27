@@ -13,6 +13,8 @@ builds:
     version: v2
   badc80b8-1ce1-4752-7789-6424e961e0ae:
     version: v6
+  cda48733-34a6-4489-6ec9-92b7d06127b3:
+    version: v9
   d9fabf93-0425-4886-75e5-b724b30ed04b:
     version: v5
 format-version: "2"

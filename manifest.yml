@@ -3,9 +3,9 @@ name: gitea
 
 releases:
 - name: gitea
-  version: v8
-  url: https://github.com/a2geek/gitea-bosh-release/releases/download/v8/gitea-bosh-release.tgz
-  sha1: 80a419b60ccb143ff4cf32ca1420f067152390a8
+  version: v9
+  url: https://github.com/a2geek/gitea-bosh-release/releases/download/v9/gitea-bosh-release.tgz
+  sha1: 5a5ed88425f32606cd962e928df014264d074978
 - name: "bpm"
   version: "1.4.16"
   url: "https://bosh.io/d/github.com/cloudfoundry/bpm-release?v=1.4.16"
@@ -18,7 +18,7 @@ releases:
 instance_groups:
 - name: gitea
   instances: 1
-  azs: [z1, z2, z3]
+  azs: [z1, z2]
   networks: [{name: default}]
   vm_type: default
   stemcell: default
