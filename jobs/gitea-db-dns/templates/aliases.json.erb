@@ -1,12 +1,12 @@
 {
 <% if p("database.type") == "postgres" -%>
   "database.gitea.internal": [
-    "*.postgres.default.gitea.bosh"
+    "*.postgres.*.gitea.bosh"
   ]
 <% end -%>
 <% if p("database.type") == "mysql" -%>
   "database.gitea.internal": [
-    "*.mysql.default.gitea.bosh"
+    "*.mysql.*.gitea.bosh"
   ]
 <% end -%>
 }
