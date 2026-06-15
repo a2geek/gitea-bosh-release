@@ -8,6 +8,7 @@ These ops files are supplied to help configure Gitea and the Gitea runners.
 | `enable-gitea-runners.yml` | Used to enable Gitea runners for activation of local actions. |
 | `enable-caddy.yml` | Used to enable caddy-gitea for "pages" capability. Set `pages_domain` for publishing address. **WARNING:** Caddy has an odd custom build; am currently specifying versions, but do not be surprised if some software version has changed anyway and it doesn't compile. Please drop a ticket or PR if this occurs. |
 | `scale-gitea-runners.yml` | Allows scaling of the number of instances (`gitea_runner_instances`, default `1`) and the capacity (`gitea_runner_capacity`, default `4`). |
+| `set-gitea-networks.yml` | Sets the network block for the gitea deployment. Variable `gitea_networks` should be a bosh manifest value. |
 | `set-networks-and-azs-gitea-runners.yml` | Sets the networks (`networks_list`) and azs (`azs_list`) for Gitea runners. |
 | `set-networks-and-azs-caddy.yml` | Sets the networks (`networks_list`) and azs (`azs_list`) for Caddy. |
 | `set-networks-and-azs-gitea.yml` | Sets the networks (`networks_list`) and azs (`azs_list`) for Gitea. |
