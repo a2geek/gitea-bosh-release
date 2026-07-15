@@ -9,6 +9,8 @@ builds:
     version: v8
   6c3a40d4-f1f4-401c-584a-279f9d5489ac:
     version: v1
+  93b737b3-c2fe-43d0-5a47-6d260215f6fd:
+    version: v11
   959d0cbe-682c-4d19-4bee-6a164e7e2143:
     version: v10
   9fcd8a9b-ed15-48d1-7f01-1594073fbab9:
