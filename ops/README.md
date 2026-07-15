@@ -14,6 +14,7 @@ These ops files are supplied to help configure Gitea and the Gitea runners.
 | `set-networks-and-azs-gitea.yml` | Sets the networks (`networks_list`) and azs (`azs_list`) for Gitea. |
 | `set-networks-and-azs-mysql.yml` | Sets the networks (`networks_list`) and azs (`azs_list`) for MySQL. |
 | `set-networks-and-azs-postgres.yml` | Sets the networks (`networks_list`) and azs (`azs_list`) for Postgres. |
+| `ops/set-runner-vm-extensions.yml` | Sets the runner VM extensions (`runner_vm_extensions`). Can be used to make ephemeral disk larger. |
 | `use-colocated-postgres-database.yml` | Uses a Postgres database, colocated on the same VM as Gitea. |
 | `use-postgres-database.yml` | Uses a Postgres database in a dedicated VM. |
 | `use-colocated-mysql-database.yml` | Uses a MySQL database, colocated on the same VM as Gitea. **WARNING:** This uses the [PXC Release](https://github.com/cloudfoundry/pxc-release) and the build disk requirements are somewhere between 20GiB and 40GiB, with 8GiB of memory. |

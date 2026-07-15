@@ -1,0 +1,4 @@
+---
+- type: replace
+  path: /instance_groups/name=gitea-runner/vm_extensions?
+  value: ((runner_vm_extensions))
