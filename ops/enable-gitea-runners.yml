@@ -8,7 +8,6 @@
     networks: [{name: default}]
     vm_type: default
     stemcell: default
-    persistent_disk: 10240
     jobs:
     - name: bpm
       release: bpm
