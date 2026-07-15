@@ -2,6 +2,7 @@ set -ex
 
 tar xzf git/git-*.tar.gz 
 cd git-*
+export NO_RUST=1
 make configure
 ./configure --prefix=${BOSH_INSTALL_TARGET}
 make -j$(nproc) all

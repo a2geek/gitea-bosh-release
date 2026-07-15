@@ -1,12 +1,12 @@
-docker/docker-29.5.3.tgz:
-  size: 86681999
-  sha: sha256:34eea64e9c3435f5af1b760827a56a561cd67fc2d6e9cd1813b8bb1e3ff7930b
-git/git-2.54.0.tar.gz:
-  size: 12120201
-  sha: sha256:7b01a23c44c9ccfca2e3ad9daf8cbdd4d4caaaa6b5181e77e16e60c6ae5f772a
-gitea/gitea-1.26.2-linux-amd64.xz:
-  size: 40872096
-  sha: sha256:722cc17938f675b2bee6a77e14d6f9c4b38fd7dea8a31bb5832987a67ce0352f
-gitea/gitea-runner-1.0.8-linux-amd64.xz:
-  size: 6294924
-  sha: sha256:504c68c4cdef2471e950a6519d2183fcfa19a27a86050eaa5bb653daf1bb77dc
+docker/docker-29.6.1.tgz:
+  size: 87300816
+  sha: sha256:b0df4a43a98d7ecb708acbdb5a34a3416e13b6e39bcbbdf296f51f0f3442b29f
+git/git-2.55.0.tar.gz:
+  size: 12209821
+  sha: sha256:72923418db7b26dfddc21e2268660c5118e560bdfaa09b4489b67b38e9b69c49
+gitea/gitea-1.26.4-linux-amd64.xz:
+  size: 40890624
+  sha: sha256:93cb06eb61a23a6a293ef860162e0b76759fafd922620c7131bfc7ab430f315d
+gitea/gitea-runner-2.0.1-linux-amd64.xz:
+  size: 6316512
+  sha: sha256:01c16c676a5996f46bca1bd82446a0d7621ecc16cd3747965d40d14ffc96ef3b
