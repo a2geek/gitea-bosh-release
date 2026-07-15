@@ -18,6 +18,8 @@ case $1 in
 
     exec dockerd \
         --config-file /var/vcap/jobs/dockerd/config/config.json \
+        --data-root /var/vcap/data/dockerd \
+        --exec-root /var/vcap/sys/run/dockerd \
         --group vcap \
         --host unix://${RUN_DIR}/docker.sock
       >>  $LOG_DIR/dockerd.stdout.log \
